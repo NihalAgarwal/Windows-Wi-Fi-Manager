@@ -14,6 +14,13 @@ There is still lot of issues are there related to software, you can contribute
 to the project by sending me 'fork request' on Github(The link to the project
 is in About section of the Application).
 
+-> The main.py is the main file. If you want to execute the Application then you 
+    had to run 'main.py' file in your IDE.
+
+Note: The Application is developed in PyCharm IDE. The third party libraries are
+      also used and the details of them are in requirement.txt file present in the
+      project repository. 	
+
 For any issue: EMAIL me at 'nihal.agarwal.1426@gmail.com'
 
 *****************************THANK YOU!****************************************
