@@ -1,0 +1,19 @@
+*****************************PASSWORD FINDER**********************************
+
+WARNING : Don't delete any images, gif or xml file from this folder, it will
+crash the software and you had to reinstall the whole software.
+
+For more info about me and about Application go to the about section of the
+Application.
+
+1. On the top left of the Application window you will see 'help'(Click on it).
+2. Select or click 'About' on drop down list.
+
+
+There is still lot of issues are there related to software, you can contribute
+to the project by sending me 'fork request' on Github(The link to the project
+is in About section of the Application).
+
+For any issue: EMAIL me at 'nihal.agarwal.1426@gmail.com'
+
+*****************************THANK YOU!****************************************
