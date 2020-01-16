@@ -1,0 +1,7 @@
+appdirs==1.4.3
+auto-py-to-exe==2.6.6
+black==19.3b0
+lxml==4.4.2
+PyInstaller==3.6
+pylint==2.4.4
+requests==2.22.0
