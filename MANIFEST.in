@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include windows_wifi_manager/Data/images/error.png
+include windows_wifi_manager/Data/images/loader.gif
+include windows_wifi_manager/Data/images/warning.png
+include windows_wifi_manager/Data/images/wifi2.ico
+include windows_wifi_manager/Data/sampleProfile.xml
