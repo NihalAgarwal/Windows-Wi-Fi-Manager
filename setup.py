@@ -1,12 +1,32 @@
 from setuptools import setup
 
+from windows_wifi_manager import __version__ as version
+
 setup(
-    name='windows-wifii-manager',
-    version='0.1.0',
+    name='windows-wifi-manager',
+    version=version,
     packages=['Windows-Wi-Fi-Manager'],
     url='https://github.com/NihalAgarwal/Windows-Wi-Fi-Manager',
     license='MIT',
     author='Nihal Agarwal',
     author_email='nihal.agarwal.1426@gmail.com',
-    description='Know the saved WiFi details and add WiFi profile using a simple graphical interface.'
+    description='Know the saved WiFi details and add WiFi profile using a'
+                'simple graphical interface.',
+    long_description=''.join(open('README.md', encoding='utf-8').readlines()),
+    long_description_content_type='text/markdown',
+    keywords=['gui', 'executable'],
+    include_package_data=True,
+    install_requires=['appdirs==1.4.3', 'lxml==4.4.2', 'requests==2.22.0'],
+    python_requires='>=3',
+    classifiers=[
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Operating System :: Microsoft :: Windows',
+    ],
 )
