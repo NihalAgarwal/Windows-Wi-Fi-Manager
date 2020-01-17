@@ -11,7 +11,6 @@ import tkinter as tk
 
 import appdirs
 import requests
-
 import top_level_window as db
 from display_data import WifiDisplayBox
 from wifi_connection import SystemWifiConnection
@@ -123,7 +122,7 @@ def disconnect_button():
 # Creating and configuring Main Window
 main_window = tk.Tk()
 main_window.configure(background='white', highlightbackground="grey")
-main_window.title("Password Finder")
+main_window.title("Windows Wi-Fi Manager")
 try:
     # the below line of code will avoid blurry looking GUI by increasing DPI.
     ctypes.windll.shcore.SetProcessDpiAwareness(1)
