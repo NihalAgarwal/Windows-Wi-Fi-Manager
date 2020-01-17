@@ -446,7 +446,7 @@ class About(BasicDialog):
             if tag_name == 'hyper':
                 webbrowser.open("https://www.facebook.com/nihal.agarwal.14")
             else:
-                webbrowser.open("https://github.com/NihalAgarwal")
+                webbrowser.open("https://github.com/NihalAgarwal/Windows-Wi-Fi-Manager")
 
         def mouse_in(event):
             """ Changing the cursor if use place cursor on link."""
@@ -465,7 +465,8 @@ class About(BasicDialog):
                 " list of all saved WiFi profile in sorted order in table form. You can also" \
                 " delete the saved Wi-Fi profile from your system and most important you can" \
                 " also add the 'Wi-Fi name' and 'passkey' of anyone's Wi-Fi and when your system" \
-                " is in a range of that Wi-Fi, it gets connected to that network."
+                " is in a range of that Wi-Fi, it gets connected to that network.\n" \
+                "For more info go to my project GitHub page (link below)."
 
         # text widget 1 for about the Application does
         about_content = tkinter.Text(master, background="#107896",
@@ -497,7 +498,7 @@ class About(BasicDialog):
 
         email_info = "nihal.agarwal.1426@gmail.com\n\n"
         facebook_info = "www.facebook.com/nihal.agarwal.14"
-        github_info = "https://github.com/NihalAgarwal"
+        github_info = "https://github.com/NihalAgarwal/Windows-Wi-Fi-Manager"
 
         about_content.insert('end', " Email : ", 'normal1')
         about_content.insert('end', email_info, 'normal')
