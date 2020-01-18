@@ -12,6 +12,7 @@ import tkinter as tk
 import appdirs
 import requests
 import top_level_window as db
+from sys import platform
 from display_data import WifiDisplayBox
 from wifi_connection import SystemWifiConnection
 
@@ -119,101 +120,111 @@ def disconnect_button():
         db.MessageBox(main_window, text, "warning")  # pop-up window
 
 
-# Creating and configuring Main Window
-main_window = tk.Tk()
-main_window.configure(background='white', highlightbackground="grey")
-main_window.title("Windows Wi-Fi Manager")
-try:
-    # the below line of code will avoid blurry looking GUI by increasing DPI.
-    ctypes.windll.shcore.SetProcessDpiAwareness(1)
-    main_window.geometry("900x600")
-
-except Exception:
-    main_window.geometry("900x500")
-
-main_window.minsize(800, 350)
-main_window.iconbitmap("data\\images\\wifi2.ico")
-
-# Creating MENU and SUBMENU
-MENU = tk.Menu(main_window)
-SUBMENU = tk.Menu(main_window, tearoff=0)
-main_window.config(menu=MENU)
-MENU.add_cascade(label="Help", menu=SUBMENU)
-SUBMENU.add_command(label="About", command=about)
-SUBMENU.add_separator()
-SUBMENU.add_command(label="Check for updates", command=update)
-SUBMENU.add_separator()
-SUBMENU.add_command(label="Quit", command=on_exiting)
-
-# Theme for Buttons
-STYLE = tk.ttk.Style()
-STYLE.configure('TButton', font=("Playfair Display", 15))
-STYLE.map('TButton', font=[('active', ("Playfair Display", 12))],
-          background=[('active', 'blue')])
-
-# Getting GIF_FRAME for refresh button when clicked
-GIF_FRAMES = [tk.PhotoImage(file="data\\images\\loader.gif", format="gif -index %i" % i)
-              for i in range(20)] * 3
-
-# Frame1 for system connected network display
-TOP_HORIZONTAL_FRAME = tk.Frame(main_window)
-# Frame2 for TreeView
-TREE_VIEW_FRAME = tk.Frame(main_window, background='white')
-# Frame3 for refresh, delete, add profile.
-VERTICAL_BUTTON_FRAME = tk.Frame(main_window, background='white')
-
-# Create object to easily reference its method and fields(e.g., SSID name)
-system_wifi_connection: 'instance of SystemWifiConnection' = SystemWifiConnection(main_window)
-
-# Displays the heading(title)
-HEADING_LABEL = tk.Label(TOP_HORIZONTAL_FRAME, text="Current Network: ",
-                         font=("Playfair Display", 13, "bold"))
-
-# Button for disconnection or refresh
-refresh_disconnect_button = tk.ttk.Button(TOP_HORIZONTAL_FRAME, style='TButton')
-
-# Displays network name
-current_network_label = tk.Label(TOP_HORIZONTAL_FRAME,
-                                 font=("Playfair Display", 13, "bold"))
-
-# packing
-HEADING_LABEL.pack(padx=10, pady=10, side=tk.LEFT)
-current_network_label.pack(padx=10, pady=10, side=tk.LEFT)
-refresh_disconnect_button.pack(padx=10, pady=10, side=tk.LEFT)
-find_network()
-
-# Defining and packing buttons for frame2
-REFRESH_BUTTON = tk.ttk.Button(VERTICAL_BUTTON_FRAME,
-                               text="Refresh List", style='TButton',
-                               cursor="hand2", command=refresh_treeview)
-
-DELETE_BUTTON = tk.ttk.Button(VERTICAL_BUTTON_FRAME,
-                              text="Delete WiFi", style='TButton',
-                              cursor="hand2", command=delete_profile)
-
-ADD_PROFILE_BUTTON = tk.ttk.Button(VERTICAL_BUTTON_FRAME,
-                                   text="Add Profile", style='TButton',
-                                   cursor="hand2", command=add_profile)
-
-# Creating TreeView and packing it to the frame2
-wdb: WifiDisplayBox = WifiDisplayBox(APP_DIR, TREE_VIEW_FRAME)
-
-# Packing all three buttons( refresh, delete, add_profile)
-REFRESH_BUTTON.pack(side=tk.TOP, pady=25, padx=10, anchor="center")
-DELETE_BUTTON.pack(side=tk.TOP, pady=25, padx=10, anchor="center")
-ADD_PROFILE_BUTTON.pack(side=tk.TOP, pady=25, padx=10, anchor="center")
-
-# Packing frame1, frame2 and frame3
-TOP_HORIZONTAL_FRAME.pack(side="top", fill=tk.BOTH)
-VERTICAL_BUTTON_FRAME.pack(side="right", fill=tk.Y, padx=5, pady=5)
-TREE_VIEW_FRAME.pack(side="left", fill=tk.BOTH, padx=5, pady=5, expand=1)
-main_window.protocol("WM_DELETE_WINDOW", on_exiting)
-
-
 def main():
     """ Hold window until user close it manually"""
     main_window.mainloop()
 
 
 if __name__ == '__main__':
+    # Checking OS
+    if platform != "win32":
+        print("The package or Application is made only for window users. ")
+        print("The package development for other OS is still in development. ")
+        exit(0)
+
+    # Creating and configuring Main Window
+    main_window = tk.Tk()
+    main_window.configure(background='white', highlightbackground="grey")
+    main_window.title("Windows Wi-Fi Manager")
+    try:
+        # the below line of code will avoid blurry looking GUI by increasing DPI.
+        ctypes.windll.shcore.SetProcessDpiAwareness(1)
+        main_window.geometry("900x600")
+
+    except Exception:
+        main_window.geometry("900x500")
+
+    main_window.minsize(800, 350)
+    main_window.iconbitmap("data\\images\\wifi2.ico")
+
+    # Creating MENU and SUBMENU
+    MENU = tk.Menu(main_window)
+    SUBMENU = tk.Menu(main_window, tearoff=0)
+    main_window.config(menu=MENU)
+    MENU.add_cascade(label="Help", menu=SUBMENU)
+    SUBMENU.add_command(label="About", command=about)
+    SUBMENU.add_separator()
+    SUBMENU.add_command(label="Check for updates", command=update)
+    SUBMENU.add_separator()
+    SUBMENU.add_command(label="Quit", command=on_exiting)
+
+    # Theme for Buttons
+    STYLE = tk.ttk.Style()
+    STYLE.configure('TButton', font=("Playfair Display", 15))
+    STYLE.map('TButton', font=[('active', ("Playfair Display", 12))],
+              background=[('active', 'blue')])
+
+    # Getting GIF_FRAME for refresh button when clicked
+    GIF_FRAMES = [tk.PhotoImage(file="data\\images\\loader.gif", format="gif -index %i" % i)
+                  for i in range(20)] * 3
+
+    # Frame1 for system connected network display
+    TOP_HORIZONTAL_FRAME = tk.Frame(main_window)
+    # Frame2 for TreeView
+    TREE_VIEW_FRAME = tk.Frame(main_window, background='white')
+    # Frame3 for refresh, delete, add profile.
+    VERTICAL_BUTTON_FRAME = tk.Frame(main_window, background='white')
+
+    # Create object to easily reference its method and fields(e.g., SSID name)
+    system_wifi_connection: 'instance of SystemWifiConnection' = SystemWifiConnection(main_window)
+
+    # Displays the heading(title)
+    HEADING_LABEL = tk.Label(TOP_HORIZONTAL_FRAME, text="Current Network: ",
+                             font=("Playfair Display", 13, "bold"))
+
+    # Button for disconnection or refresh
+    refresh_disconnect_button = tk.ttk.Button(TOP_HORIZONTAL_FRAME, style='TButton')
+
+    # Displays network name
+    current_network_label = tk.Label(TOP_HORIZONTAL_FRAME,
+                                     font=("Playfair Display", 13, "bold"))
+
+    # packing
+    HEADING_LABEL.pack(padx=10, pady=10, side=tk.LEFT)
+    current_network_label.pack(padx=10, pady=10, side=tk.LEFT)
+    refresh_disconnect_button.pack(padx=10, pady=10, side=tk.LEFT)
+    find_network()
+
+    # Defining and packing buttons for frame2
+    REFRESH_BUTTON = tk.ttk.Button(VERTICAL_BUTTON_FRAME,
+                                   text="Refresh List", style='TButton',
+                                   cursor="hand2", command=refresh_treeview)
+
+    DELETE_BUTTON = tk.ttk.Button(VERTICAL_BUTTON_FRAME,
+                                  text="Delete WiFi", style='TButton',
+                                  cursor="hand2", command=delete_profile)
+
+    ADD_PROFILE_BUTTON = tk.ttk.Button(VERTICAL_BUTTON_FRAME,
+                                       text="Add Profile", style='TButton',
+                                       cursor="hand2", command=add_profile)
+
+    # Creating TreeView and packing it to the frame2
+    wdb: WifiDisplayBox = WifiDisplayBox(APP_DIR, TREE_VIEW_FRAME)
+
+    # Packing all three buttons( refresh, delete, add_profile)
+    REFRESH_BUTTON.pack(side=tk.TOP, pady=25, padx=10, anchor="center")
+    DELETE_BUTTON.pack(side=tk.TOP, pady=25, padx=10, anchor="center")
+    ADD_PROFILE_BUTTON.pack(side=tk.TOP, pady=25, padx=10, anchor="center")
+
+    # Packing frame1, frame2 and frame3
+    TOP_HORIZONTAL_FRAME.pack(side="top", fill=tk.BOTH)
+    VERTICAL_BUTTON_FRAME.pack(side="right", fill=tk.Y, padx=5, pady=5)
+    TREE_VIEW_FRAME.pack(side="left", fill=tk.BOTH, padx=5, pady=5, expand=1)
+    main_window.protocol("WM_DELETE_WINDOW", on_exiting)
     main()
+
+
+
+
+
+
