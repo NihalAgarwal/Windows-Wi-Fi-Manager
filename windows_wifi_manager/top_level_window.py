@@ -10,6 +10,7 @@ import os
 import tkinter
 import webbrowser
 from abc import ABC, abstractmethod
+from sys import path
 from tkinter import ttk
 from xml.dom import minidom
 
@@ -46,7 +47,7 @@ class BasicDialog(tkinter.Toplevel, ABC):
         self.configure(background='white')
         if title:
             self.title(title)
-        self.iconbitmap("data\\images\\wifi2.ico")
+        self.iconbitmap(os.path.join(path[0], "./data/images/wifi2.ico"))
         self.resizable(False, False)  # window cannot be resized
         self.temp = tkinter.BooleanVar()  # Defining Variable of type boolean
         self.parent = parent
@@ -151,7 +152,8 @@ class QuitWindow(BasicDialog):
         BasicDialog.__init__(self, parent, title=None)
 
     def body(self, master):
-        image_ssid_entry = tkinter.PhotoImage(file="data\\images\\warning.png")
+        image_ssid_entry = tkinter.PhotoImage(file=os.path.join(path[0],
+                                                                "./data/images/warning.png"))
         image_label = tkinter.Label(master, image=image_ssid_entry, bg="white")
         image_label.image = image_ssid_entry
         text_label = tkinter.Label(master, text="Do you really wish to Quit?",
@@ -331,7 +333,7 @@ class AddProfile(BasicDialog):
             image_ = "error"
 
         else:
-            message = "Profile added successfully."
+            message = "Profile added successfully (Please Refresh)"
             image_ = "warning"
 
         MessageBox(self.parent, message, image_)
@@ -386,9 +388,9 @@ class MessageBox(BasicDialog):
 
         self.text_ = message
         if image_to_displayed == "warning":
-            image_ = tkinter.PhotoImage(file="data\\images\\warning.png")
+            image_ = tkinter.PhotoImage(file=os.path.join(path[0], "./data/images/warning.png"))
         else:
-            image_ = tkinter.PhotoImage(file="data\\images\\error.png")
+            image_ = tkinter.PhotoImage(file=os.path.join(path[0], "./data/images/error.png"))
         self.image_ = image_
         BasicDialog.__init__(self, parent, title=None)
 
