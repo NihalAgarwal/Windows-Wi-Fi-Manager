@@ -207,7 +207,13 @@ ADD_PROFILE_BUTTON.pack(side=tk.TOP, pady=25, padx=10, anchor="center")
 TOP_HORIZONTAL_FRAME.pack(side="top", fill=tk.BOTH)
 VERTICAL_BUTTON_FRAME.pack(side="right", fill=tk.Y, padx=5, pady=5)
 TREE_VIEW_FRAME.pack(side="left", fill=tk.BOTH, padx=5, pady=5, expand=1)
-
-# Hold window until user close it manually
 main_window.protocol("WM_DELETE_WINDOW", on_exiting)
-main_window.mainloop()
+
+
+def main():
+    """ Hold window until user close it manually"""
+    main_window.mainloop()
+
+
+if __name__ == '__main__':
+    main()
