@@ -5,7 +5,7 @@ from windows_wifi_manager import __version__ as version
 setup(
     name='windows-wifi-manager',
     version=version,
-    packages=['Windows-Wi-Fi-Manager'],
+    packages=['windows_wifi_manager'],
     url='https://github.com/NihalAgarwal/Windows-Wi-Fi-Manager',
     license='MIT',
     author='Nihal Agarwal',
@@ -31,7 +31,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'windows_wifi_manager=windows_wifi_manager.__main__:main',
+            'windowswifimanager=windows_wifi_manager.__main__:main',
             'windows-wifi-manager=windows_wifi_manager.__main__:main'
         ],
     },
