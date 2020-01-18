@@ -6,13 +6,14 @@ be stored and also responsible for the support to every other modules.
 
 import ctypes
 import os
+import sys
 import time
 import tkinter as tk
+from sys import platform, path
 
 import appdirs
 import requests
 import top_level_window as db
-from sys import platform
 from display_data import WifiDisplayBox
 from wifi_connection import SystemWifiConnection
 
@@ -130,7 +131,7 @@ if __name__ == '__main__':
     if platform != "win32":
         print("The package or Application is made only for window users. ")
         print("The package development for other OS is still in development. ")
-        exit(0)
+        sys.exit(0)
 
     # Creating and configuring Main Window
     main_window = tk.Tk()
@@ -145,7 +146,7 @@ if __name__ == '__main__':
         main_window.geometry("900x500")
 
     main_window.minsize(800, 350)
-    main_window.iconbitmap("data\\images\\wifi2.ico")
+    main_window.iconbitmap(os.path.join(path[0], "./data/images/wifi2.ico"))
 
     # Creating MENU and SUBMENU
     MENU = tk.Menu(main_window)
@@ -165,8 +166,8 @@ if __name__ == '__main__':
               background=[('active', 'blue')])
 
     # Getting GIF_FRAME for refresh button when clicked
-    GIF_FRAMES = [tk.PhotoImage(file="data\\images\\loader.gif", format="gif -index %i" % i)
-                  for i in range(20)] * 3
+    GIF_FRAMES = [tk.PhotoImage(file=os.path.join(path[0], "./data/images/loader.gif"),
+                                format="gif -index %i" % i) for i in range(20)] * 3
 
     # Frame1 for system connected network display
     TOP_HORIZONTAL_FRAME = tk.Frame(main_window)
@@ -222,9 +223,3 @@ if __name__ == '__main__':
     TREE_VIEW_FRAME.pack(side="left", fill=tk.BOTH, padx=5, pady=5, expand=1)
     main_window.protocol("WM_DELETE_WINDOW", on_exiting)
     main()
-
-
-
-
-
-
