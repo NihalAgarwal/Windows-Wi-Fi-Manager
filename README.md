@@ -1,2 +1,93 @@
-# Windows-Wi-Fi-Manager
-This Desktop Application finds out all the saved Wi-Fi from your window system and displays the Wi-Fi details of specific Wi-Fi profile (SSID name, Authentication, Password). I know it is simple to get the password by just using CMD and typing commands like 'netsh wlan show profile name = "&lt;profile name>" key=clear" but that's not everyone is familiar with and you have to manually type the SSID name of the profile and for some profile like 'Mr.N=" you will get the result 'Profile "Mr. N=key=clear" is not found on the system'. The issue with this profile is '=' at the end of the SSID name, had you ever think if some SSID contains emojis how will you type it in CMD, but my application will list out all the saved Wi-Fi in sorted order and you just had to scroll down and choose the name of the Wi-Fi of whom you want to get the details and you will get all info of that profile including Security Key (Password). The other benefit of this application is that you can save the SSID name, Authentication, and Password of that profile and when your system comes in Wi-Fi range of that profile, it will automatically get connected to that network. If your system is flooded with too much of Wi-Fi profiles, without going to CMD and selecting the SSID name and then typing dozens of command, you can delete in one click by selecting the Wi-Fi profile in the list and press delete button. Download and install the application and you will know what I want to say. The Application code is in python programming language and I use Tkinter GUI framework.
+<h1 align="center">Windows Wi-Fi Manager</h1>
+<p align="center">Get saved Wi-Fi details (including key) and add a Wi-Fi without connecting to it. So when Wi-Fi is under range your OS (or system) will automatically set up the connection.</p>
+
+<p align="center">
+    <img src="https://i.imgur.com/EuUlayC.png" alt="Empty interface">
+</p>
+
+<p align="center">
+    <a href="https://pypi.org/project/auto-py-to-exe/"><img src="https://img.shields.io/pypi/v/auto-py-to-exe.svg" alt="PyPI Version"></a>
+    <a href="https://pypi.org/project/auto-py-to-exe/"><img src="https://img.shields.io/pypi/pyversions/auto-py-to-exe.svg" alt="PyPI Supported Versions"></a>
+    <a href="https://pypi.org/project/auto-py-to-exe/"><img src="https://img.shields.io/pypi/l/auto-py-to-exe.svg" alt="License"></a>
+    <a href="http://pepy.tech/project/auto-py-to-exe"><img src="http://pepy.tech/badge/auto-py-to-exe" alt="Downloads"></a>
+</p>
+
+## Getting Started
+
+### Prerequisites
+ - Python : Python >= 3.3 ( including 3.7 🎉 )
+
+*To have the interface displayed in the images, you will need chrome. If chrome is not installed or --no-chrome is supplied, the default browser will be used.*
+
+### Installation and Usage
+#### Installing Via [PyPI](https://pypi.org/project/auto-py-to-exe/)
+You can install this project using PyPI:
+```
+> pip install windows-wifi-manager
+```
+Then to run it, execute the following in the terminal:
+```
+> windows-wifi-manager
+```
+
+### Installing Via [GitHub](https://github.com/NihalAgarwal/Windows-Wi-Fi-Manager.git)
+```
+$ git clone https://github.com/NihalAgarwal/Windows-Wi-Fi-Manager.git
+$ cd Windows-Wi-Fi-Manager
+$ python setup.py install
+```
+Then to run it, execute the following in the terminal:
+```
+> windows-wifi-manager
+```
+
+#### Running Locally Via [Github](https://github.com/brentvollebregt/auto-py-to-exe) (no install)
+You can run this project locally by following these steps:
+1. Clone/download the [repo](https://github.com/brentvollebregt/auto-py-to-exe)
+2. Open cmd/terminal and cd into the project
+3. Execute ```python -m pip install -r requirements.txt```
+
+Now to run the application, execute ```python -m auto_py_to_exe```. A Chrome window in app mode will open with the project running inside.
+
+> Make sure you are in the directory below auto_py_to_exe (you will be after step 3) when calling `python -m auto_py_to_exe` or you will need to reference the folder auto_py_to_exe absolutely/relatively to where you currently are.
+
+## Using the Application
+1. Select your script location (paste in or use a file explorer)
+    - Outline will become blue when file exists
+2. Select other options and add things like an icon or other files
+3. Click the big blue button at the bottom to convert
+4. Find your converted files in /output when completed
+
+*Easy.*
+
+### Arguments
+Usage: `auto-py-to-exe [-nc] [-c [CONFIG]] [filename]`
+
+| Argument                       | Type       | Description                                                                                                                                          |
+|--------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| filename                       | positional | Pre-fill the "Script Location" field in the UI.                                                                                                      |
+| -nc, --no-chrome               | optional   | Open the UI using the default browser (which may be Chrome). Will not try to find Chrome                                                             |
+| -c [CONFIG], --config [CONFIG] | optional   | Provide a configuration file (json) to pre-fill the UI. These can be generated from the bottom of the advanced tab when you have setup your options. |
+
+> If you are running this package locally, you will need to call ```python -m auto_py_to_exe``` instead of ```auto-py-to-exe```
+
+### Configurations
+Instead of inserting the same data into the UI over and over again, you can export the current state of the UI by going to the section "Configuration Import and Export" at the bottom of the advanced tab and exporting a JSON string to the clipboard or a file. This can then be imported into the UI again to re-populate all fields.
+
+## Video
+If you need something visual to help you get started, [I made a video for the original release of this project](https://youtu.be/OZSZHmWSOeM); some things may be different but the same concepts still apply.
+
+## Issues Using the Tool
+If you're having issues with the packaged executable or using this tool in general, I recommend you read [my blog post on common issues when using auto-py-to-exe](https://nitratine.net/blog/post/issues-when-using-auto-py-to-exe/). This post covers things you should know about packaging Python scripts and fixes for things that commonly go wrong.
+
+### Making GitHub Issues
+Before making an issue on GitHub, make sure you have read through the blog post above and tried to [debug your application](https://nitratine.net/blog/post/issues-when-using-auto-py-to-exe/#debugging). Also please take some time to look through [older GitHub issues](https://github.com/brentvollebregt/auto-py-to-exe/issues?q=) to see if your issue has already been discussed.
+
+A lot of questions commonly asked relate to the fact that people have not tried debugging their application themselves. Please make sure you do this otherwise it makes it a lot harder to help.
+
+## Screenshots
+![Empty interface](https://i.imgur.com/dd0LC2n.png)
+
+![Filled out](https://i.imgur.com/f3TEnZI.png)
+
+![Converting](https://i.imgur.com/MjdONcC.png)
