@@ -53,11 +53,11 @@ The other benefit of this application is that **you can manually save the SSID n
 <p>If you are still having any confusion, give a try to Application and you will definitely know what I mean to say above.</p>
 
 ## Issues
-<p>The Application is under developement, mail me if you are facing any issue.</p>
+<p>The Application is under developement, mail me if you are facing any issue and want to give any suggestion, feel free to mail me..</p>
 
 **Mail id** = nihal.agarwal.1426@gmail.com
 
 ## Contribute
-<p> The Application is under developement, if any wants to contribute in development and for any specification to be included, feel free to send fork request to me.
+<p> The Application is under developement, if anyone wants to contribute in development feel free to send fork request to me.
 
 #### THANK YOU!🙂
