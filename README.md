@@ -26,9 +26,9 @@ Then to run it, execute the following in the terminal:
 
 ### Installing Via [GitHub](https://github.com/NihalAgarwal/Windows-Wi-Fi-Manager)
 ```
-$ git clone https://github.com/NihalAgarwal/Windows-Wi-Fi-Manager.git
-$ cd Windows-Wi-Fi-Manager
-$ python setup.py install
+> git clone https://github.com/NihalAgarwal/Windows-Wi-Fi-Manager.git
+> cd Windows-Wi-Fi-Manager
+> python setup.py install
 ```
 Then to run it, execute the following in the terminal:
 ```
@@ -38,20 +38,19 @@ Then to run it, execute the following in the terminal:
 
 ## About this Application
 
-This Desktop Application finds out all the saved Wi-Fi from your window system and displays the **Wi-Fi details of specific Wi-Fi profile (SSID name, Authentication, Password).** I know it is simple to get the password by just using CMD and typing commands like *netsh wlan show profile name = "<profile name>" key=clear"* but that's not everyone is familiar with and you have to manually type the SSID name of that Wi-Fi profile and for some profile like _**Mr.N=**_ you will get the result as _**“Mr.N=key=clear" is not found on the system**_. The issue with this profile is '__=__' at the end of the SSID name, did you ever think if some SSID contains emoji's how will you type it in CMD ('', ""', :, etc. If these types of symbols are present in SSID name, then also it is very difficult) but we know that nothing is impossible, you can suppress this problem by using _escape characters like \\ or ^ to escape characters like "" and '' and many more_, **but this Application will list out all the saved Wi-Fi in sorted order and you just had to scroll down and choose the name of the Wi-Fi of whom you want to get the details and you will get all information of that profile including Security Key (Password).**
+This Desktop Application finds out all the saved Wi-Fi from your window system and displays the **Wi-Fi details of specific Wi-Fi profile (SSID name, Authentication, Password).** I know it is simple to get the password by just using CMD and typing commands like *netsh wlan show profile name = "\<profile name>" key=clear"* but that's not everyone is familiar with and you have to manually type the SSID name of that Wi-Fi profile and for some profile like _**Mr.N=**_ you will get the result as _**“Mr.N=key=clear" is not found on the system**_. The issue with this profile is '__=__' at the end of the SSID name, did you ever think if some SSID's contain emoji's how will you type it in CMD ( ' ', " ", :, etc. If these types of symbols are present in SSID name, then also it is very difficult) but we know that nothing is impossible, you can suppress this problem by using _escape characters like \\ or ^ to escape characters like "" and '' and many more_, **but this Application will list out all the saved Wi-Fi in sorted order and you just had to scroll down and choose the name of the Wi-Fi of whom you want to get the details and you will get all information of that profile including Security Key (Password).**
 
 ![Wi-Fi detail of slected profile](https://drive.google.com/open?id=1eDDZDrpIdiRGTwkKsLPMNLLZQMReBusJ)
 
-The other benefit of this application is that **you can manually save the SSID name, Authentication, and Password of any Wi-Fi profile** and when your system comes under that Wi-Fi range, it will automatically get connected to that Wi-Fi network. For example, If you know someone’s Wi-Fi details and that Wi-Fi is not in the range, then you can use this application and select the **_'Add Profile'_** option and then enter the details of that Wi-Fi profile, confirm it and details of that Wi-Fi profile will saved to your system and one day when your system detects the frequency of that Wi-Fi (or getting signals from that Wi-Fi) _it will automatically get connected, rather than asking for a password for the first time connection establishment_ (like we do for the first time when connecting to any Wi-Fi).
+The other benefit of this application is that **you can manually save the SSID name, Authentication, and Password of any Wi-Fi profile** and when your system comes under that Wi-Fi range, it will automatically get connected to that Wi-Fi network. For example, If you know someone’s Wi-Fi details and that Wi-Fi is not in the range and your system is never connected to it before, then you can use this application and select the **_'Add Profile'_** option and then enter the details of that Wi-Fi profile, confirm it and details of that Wi-Fi profile will saved to your system and one day when your system detects the frequency of that Wi-Fi (or getting signals from that Wi-Fi Network) _it will automatically get connected, rather than asking for a password for the first time connection establishment_ (like we do for the first time when connecting to any Wi-Fi Network).
 
 ![Adding Wi-Fi profile](https://drive.google.com/open?id=1Y_dFZ48eNW_xwCS2aoVc0WhPA1PC7CsI)
 
-*If your system is flooded with too much of Wi-Fi profiles*, going to CMD and selecting the SSID name by typing ‘netsh wlan show profiles’ and then selecting the profile and then use delete command with manually typing the SSID name and some time it doesn’t get successful like I mention above that **some SSID’s contain ambiguous name (like containing symbols, emojis within the name)** and it is very difficult for CMD to parse the command and find out the SSID name but in **_Windows Password Manager_** you can delete it in one click by selecting the Wi-Fi profile in the list and press delete button.
+*If your system is flooded with too much of Wi-Fi profiles*, going to CMD and selecting the SSID name by typing '_netsh wlan show profiles_' and then selecting the profile and then use delete command with manually typing the SSID name and some time it doesn’t get successful like I mention above that **some SSID’s contain ambiguous name (like containing symbols, emojis within their name)** and it is very difficult for CMD to parse the command and find out the SSID name but in **_Windows Password Manager_** you can delete it in one click by selecting the Wi-Fi profile in the list and press delete button.
 
 ![Successfully deleted a profile](https://drive.google.com/open?id=1f5o1ry90dlkEDDGXcl7gZzroCYNrDEr_)
 
-<p>If you are still having any confusion, give a try to the Application.</p>
-<p>Download and install the application and you will know what I want to say.</p>
+<p>If you are still having any confusion, give a try to Application and you will definitely know what I mean to say above.</p>
 
 ## Issues
 <p>The Application is under developement, mail me if you are facing any issue.</p>
