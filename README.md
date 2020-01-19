@@ -2,7 +2,7 @@
 <p align="center">Get saved Wi-Fi details (including key) and add a Wi-Fi without connecting to it. So when Wi-Fi is under range your OS (or system) will automatically set up the connection.</p>
 
 <p align="center">
-    <img src="images/image1.png">
+    <img src="images/image1.png" width='650' height='500'>
 </p>
 
 ## Getting Started
