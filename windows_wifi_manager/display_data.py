@@ -9,8 +9,8 @@ import tkinter as tk
 import tkinter.font as tkfont
 import tkinter.ttk as ttk
 
-import top_level_window as db
-import wifi_data as saved_wifi_info
+from . import top_level_window as db
+from . import wifi_data as saved_wifi_info
 
 
 class WifiDisplayBox:
@@ -115,6 +115,7 @@ class WifiDisplayBox:
         self.getting_data_obj.create_wifi_list()
 
         # Modify rows of tree view and remove or add newly added data.
+
         try:
             self.build_tree()
         except Exception:

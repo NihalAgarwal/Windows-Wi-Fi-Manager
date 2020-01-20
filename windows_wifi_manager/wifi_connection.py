@@ -5,7 +5,7 @@ to disconnect from the current connected network.
 import re
 import subprocess
 
-from top_level_window import MessageBox
+from windows_wifi_manager.top_level_window import MessageBox
 
 
 class SystemWifiConnection:

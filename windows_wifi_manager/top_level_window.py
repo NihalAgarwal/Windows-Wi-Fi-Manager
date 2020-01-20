@@ -10,7 +10,6 @@ import os
 import tkinter
 import webbrowser
 from abc import ABC, abstractmethod
-from sys import path
 from tkinter import ttk
 from xml.dom import minidom
 
@@ -47,7 +46,7 @@ class BasicDialog(tkinter.Toplevel, ABC):
         self.configure(background='white')
         if title:
             self.title(title)
-        self.iconbitmap(os.path.join(path[0], "./data/images/wifi2.ico"))
+        self.iconbitmap(os.path.dirname(os.path.realpath(__file__)) + "/data/images/wifi2.ico")
         self.resizable(False, False)  # window cannot be resized
         self.temp = tkinter.BooleanVar()  # Defining Variable of type boolean
         self.parent = parent
@@ -152,8 +151,8 @@ class QuitWindow(BasicDialog):
         BasicDialog.__init__(self, parent, title=None)
 
     def body(self, master):
-        image_ssid_entry = tkinter.PhotoImage(file=os.path.join(path[0],
-                                                                "./data/images/warning.png"))
+        image_ssid_entry = tkinter.PhotoImage(os.path.dirname(os.path.realpath(__file__))
+                                              + "/data/images/warning.png")
         image_label = tkinter.Label(master, image=image_ssid_entry, bg="white")
         image_label.image = image_ssid_entry
         text_label = tkinter.Label(master, text="Do you really wish to Quit?",
@@ -300,7 +299,8 @@ class AddProfile(BasicDialog):
             with open(self.app_path + "\\temp_\\" + file_name + ".xml", "w") as file:
                 file.write(parsed.toprettyxml(indent="        "))
 
-        parse_xml = etree.parse("data\\sampleProfile.xml")
+        parse_xml = etree.parse(os.path.dirname(os.path.realpath(__file__)) +
+                                "/data/sampleProfile.xml")
 
         # The below code will parse the sample xml file
         # and fill important details entered by the user.
@@ -387,10 +387,11 @@ class MessageBox(BasicDialog):
         """ Text or image to be displayed"""
 
         self.text_ = message
+        path_dir = os.path.dirname(os.path.realpath(__file__))
         if image_to_displayed == "warning":
-            image_ = tkinter.PhotoImage(file=os.path.join(path[0], "./data/images/warning.png"))
+            image_ = tkinter.PhotoImage(file=path_dir + "/data/images/warning.png")
         else:
-            image_ = tkinter.PhotoImage(file=os.path.join(path[0], "./data/images/error.png"))
+            image_ = tkinter.PhotoImage(file=path_dir + "/data/images/error.png")
         self.image_ = image_
         BasicDialog.__init__(self, parent, title=None)
 
