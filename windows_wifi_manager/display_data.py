@@ -104,22 +104,27 @@ class WifiDisplayBox:
         """
 
         # If in a TreeView any row is selected then deselect it.
-        if self.tree_view.focus():
-            self.tree_view.item(self.index_of_previous_item[0],
-                                values=[self.index_of_previous_item[-2], "", "", ""])
-
-        if os.path.isfile(self.app_path + "\\Saved Wifi list.txt"):
-            os.remove(self.app_path + "\\Saved Wifi list.txt")
-
-        # Generating fresh newly wifi list.
-        self.getting_data_obj.create_wifi_list()
-
-        # Modify rows of tree view and remove or add newly added data.
-
         try:
+            if self.tree_view.focus():
+                self.tree_view.item(self.index_of_previous_item[0],
+                                    values=[self.index_of_previous_item[-2], "", "", ""])
+                self.index_of_previous_item = ("", "", False)
+
+            if os.path.isfile(self.app_path + "\\Saved Wifi list.txt"):
+                os.remove(self.app_path + "\\Saved Wifi list.txt")
+
+            # clearing the whole treeview
+            for i in self.list_of_children:
+                self.tree_view.delete(i)
+
+            # Generating fresh newly wifi list.
+            self.getting_data_obj.create_wifi_list()
+            # Modify rows of tree view and remove or add newly added data.
             self.build_tree()
+            return True
+
         except Exception:
-            pass
+            return
 
     def delete_profile(self, parent_window):
         """ Delete Wi-Fi profile and all its content from the System."""

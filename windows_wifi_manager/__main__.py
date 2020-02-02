@@ -53,26 +53,15 @@ def main():
 
     def refresh_treeview():
         """ Refresh the software and search for all saved networks and
-        add it to the TreeView. It will display the 'rotating' gif until
-        the task done.
+        add it to the TreeView.
         """
+        temp = wdb.refresh_treeview()  # Generate a new list of saved Wi-Fi
 
-        def update_gif_frame(index):
-            """ Update the frame at every call."""
-            single_frame = gif_frames[index]
-            index += 1
-            gif_display_label.configure(image=single_frame)
-            # Check that all frames are utilized
-            if index >= len(gif_frames):
-                wdb.refresh_treeview()
-                gif_display_label.destroy()
-                return
-            tree_view_frame.after(50, update_gif_frame, index)
+        if temp:
+            db.MessageBox(main_window, 'Refresh Successfully.', 'check')
 
-        gif_display_label = tk.Label(tree_view_frame)
-        gif_display_label.grid(row=0, column=0, columnspan=2, rowspan=2, sticky="nsew")
-        tree_view_frame.after(50, gif_display_label.lift)
-        tree_view_frame.after(50, update_gif_frame, 0)
+        else:
+            db.MessageBox(main_window, 'Facing issue.')
 
     def delete_profile():
         """ Call delete_profile method of WifiDisplayBox to delete a wifi profile."""
@@ -94,7 +83,7 @@ def main():
         (if no network connected) otherwise button value is modified to
         'disconnect' and label is updated as network name.
         """
-        ssid_name: "Name of system connected Network" = system_wifi_connection.is_connected()
+        ssid_name = system_wifi_connection.is_connected()
 
         if ssid_name is not None:
             refresh_disconnect_button.configure(text="Disconnect",
@@ -155,10 +144,6 @@ def main():
     style.map('TButton', font=[('active', ("Playfair Display", 12))],
               background=[('active', 'blue')])
 
-    # Getting GIF_FRAME for refresh button when clicked
-    gif_frames = [tk.PhotoImage(file=path_dir + "/data/images/loader.gif",
-                                format="gif -index %i" % i) for i in range(20)] * 3
-
     # Frame1 for system connected network display
     top_horizontal_frame = tk.Frame(main_window)
     # Frame2 for TreeView
@@ -167,7 +152,7 @@ def main():
     vertical_button_frame = tk.Frame(main_window, background='white')
 
     # Create object to easily reference its method and fields(e.g., SSID name)
-    system_wifi_connection: 'instance of SystemWifiConnection' = SystemWifiConnection(main_window)
+    system_wifi_connection = SystemWifiConnection(main_window)
 
     # Displays the heading(title)
     heading_label = tk.Label(top_horizontal_frame, text="Current Network: ",
@@ -200,7 +185,7 @@ def main():
                                        cursor="hand2", command=add_profile)
 
     # Creating TreeView and packing it to the frame2
-    wdb: WifiDisplayBox = WifiDisplayBox(APP_DIR, tree_view_frame)
+    wdb = WifiDisplayBox(APP_DIR, tree_view_frame)
 
     # Packing all three buttons( refresh, delete, add_profile)
     refresh_button.pack(side=tk.TOP, pady=25, padx=10, anchor="center")
@@ -208,9 +193,13 @@ def main():
     add_profile_button.pack(side=tk.TOP, pady=25, padx=10, anchor="center")
 
     # Packing frame1, frame2 and frame3
-    top_horizontal_frame.pack(side="top", fill=tk.BOTH)
-    vertical_button_frame.pack(side="right", fill=tk.Y, padx=5, pady=5)
-    tree_view_frame.pack(side="left", fill=tk.BOTH, padx=5, pady=5, expand=1)
+
+    top_horizontal_frame.grid(row=0, column=0, columnspan=2, sticky='nsew')
+    vertical_button_frame.grid(row=1, column=1, sticky='nsew')
+    tree_view_frame.grid(row=1, column=0, sticky='nsew')
+    main_window.grid_columnconfigure(0, weight=1)
+    main_window.grid_rowconfigure(1, weight=1)
+
     main_window.protocol("WM_DELETE_WINDOW", on_exiting)
     main_window.mainloop()
 

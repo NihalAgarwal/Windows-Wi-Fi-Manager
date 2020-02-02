@@ -94,14 +94,12 @@ class BasicDialog(tkinter.Toplevel, ABC):
             "Cancel" which will call the 'ok' and 'cancel' method of this class resp.
              In many inherited class this function is override."""
 
-        style = ttk.Style()
-        style.configure('TButton', font=("Playfair Display", 12))
-        below_hz_frame = ttk.Frame(self)
-        ok_button = ttk.Button(below_hz_frame, text="OK", style='TButton',
+        below_hz_frame = tkinter.Frame(self)
+        ok_button = ttk.Button(below_hz_frame, text="OK",
                                width=10, command=self.ok,
                                default=tkinter.ACTIVE)
         ok_button.grid(row=0, column=0, padx=30, pady=10)
-        cancel_button = ttk.Button(below_hz_frame, text="Cancel", style="TButton", width=10,
+        cancel_button = ttk.Button(below_hz_frame, text="Cancel", width=10,
                                    command=self.cancel)
         cancel_button.grid(row=0, column=1, padx=30, pady=10)
 
@@ -151,8 +149,8 @@ class QuitWindow(BasicDialog):
         BasicDialog.__init__(self, parent, title=None)
 
     def body(self, master):
-        image_ssid_entry = tkinter.PhotoImage(os.path.dirname(os.path.realpath(__file__))
-                                              + "/data/images/warning.png")
+        path_dir = os.path.dirname(os.path.realpath(__file__))
+        image_ssid_entry = tkinter.PhotoImage(file=path_dir + "/data/images/warning.png")
         image_label = tkinter.Label(master, image=image_ssid_entry, bg="white")
         image_label.image = image_ssid_entry
         text_label = tkinter.Label(master, text="Do you really wish to Quit?",
@@ -390,8 +388,11 @@ class MessageBox(BasicDialog):
         path_dir = os.path.dirname(os.path.realpath(__file__))
         if image_to_displayed == "warning":
             image_ = tkinter.PhotoImage(file=path_dir + "/data/images/warning.png")
+        elif image_to_displayed == 'check':
+            image_ = tkinter.PhotoImage(file=path_dir + "/data/images/check.png")
         else:
             image_ = tkinter.PhotoImage(file=path_dir + "/data/images/error.png")
+
         self.image_ = image_
         BasicDialog.__init__(self, parent, title=None)
 
@@ -411,10 +412,8 @@ class MessageBox(BasicDialog):
 
     def button_box(self):
 
-        style = ttk.Style()
-        style.configure('TButton', font=("Playfair Display", 12))
-        below_hz_frame = ttk.Frame(self)
-        ok_button = ttk.Button(below_hz_frame, text="OK", style='TButton', width=10,
+        below_hz_frame = tkinter.Frame(self)
+        ok_button = ttk.Button(below_hz_frame, text="OK", width=10,
                                command=self.ok, default=tkinter.ACTIVE)
         self.bind("<Return>", self.ok)
         ok_button.pack(side=tkinter.RIGHT, padx=15, pady=5)

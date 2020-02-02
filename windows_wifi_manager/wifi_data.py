@@ -49,7 +49,7 @@ class WifiInformation:
             if output.returncode == 0:
                 my_regex = r"[\n\r-<>():].*All User Profile\s*: ([^\n\r]*)"
                 list_of_wifi = re.findall(my_regex, output.stdout)
-                list_of_wifi.sort()
+                list_of_wifi.sort(key = lambda x: x.lower())
                 for i in list_of_wifi:
                     file.write(i + "\n")
 
@@ -127,7 +127,7 @@ class WifiInformation:
         """
 
         root = tree.getroot()
-        namespace: "Capture the namespace of the scope" = re.match(
+        namespace = re.match(
             r"{[^\s\n\r]+}", root.tag).group()
 
         ssid = tree.find(".//" + namespace + "SSID")
