@@ -54,8 +54,8 @@ The other benefit of this application is that **you can manually save the SSID n
 
 ## Issues
 
-####Version = '0.1.0' :
-#####Bugs (Reported by the users):
+#### Version = '0.1.0' :
+##### Bugs (Reported by the users):
 1. Delay in opening Top-level window (Fixed in version = 0.2.0).
 2. The packing layout of main window widgets get disturbed when user open any Top-Level window (Fixed in version = 0.2.0).
 3. Issue related with refreshing the data in TreeView (Fixed in version = 0.2.0)
