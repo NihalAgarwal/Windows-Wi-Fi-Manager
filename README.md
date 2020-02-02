@@ -59,7 +59,12 @@ The other benefit of this application is that **you can manually save the SSID n
 1. Delay in opening Top-level window (Fixed in version = 0.2.0).
 2. The packing layout of main window widgets get disturbed when user open any Top-Level window (Fixed in version = 0.2.0).
 3. Issue related with refreshing the data in TreeView (Fixed in version = 0.2.0)
-4. Compatibility issues with python 3.6 or less (To be fixed in future version, still a bug 😥)
+4. Compatibility issues with python 3.6 or less (To be fixed in future version 😥)
+
+#### Version = '0.2.0' :
+##### Bugs (Reported by the users):
+It is the lasted version, still collecting bugs and errors and to be fixed in future version (I will list out the bugs
+after new version is ready to deploy.)
 
 
 <p>The Application is under developement, mail me if you are facing any issue and want to give any suggestion, feel free to mail me..</p>
