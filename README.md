@@ -63,7 +63,7 @@ The other benefit of this application is that **you can manually save the SSID n
 
 #### Version = '0.2.0' :
 ##### Bugs (Reported by the users):
-It is the lasted version, still collecting bugs and errors and to be fixed in future version (I will list out the bugs
+It is the latest version, still collecting bugs and errors and to be fixed in future version (I will list out the bugs
 after new version is ready to deploy.)
 
 
