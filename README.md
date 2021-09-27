@@ -1,4 +1,5 @@
-<h1 align="center">Windows Wi-Fi Manager</h1>   [![Downloads](https://pepy.tech/badge/windows-wifi-manager)](https://pepy.tech/project/windows-wifi-manager)
+<h1 align="center">Windows Wi-Fi Manager</h1>
+![Downloads](https://pepy.tech/badge/windows-wifi-manager)](https://pepy.tech/project/windows-wifi-manager)
 <p align="center">Get saved Wi-Fi details (including key) and add a Wi-Fi without connecting to it. So when Wi-Fi is under range your OS (or system) will automatically set up the connection.</p>
 
 <p align="center">
