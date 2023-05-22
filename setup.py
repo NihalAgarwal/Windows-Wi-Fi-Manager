@@ -16,7 +16,7 @@ setup(
     long_description_content_type='text/markdown',
     keywords=['gui', 'wifi', 'netsh', 'Wi-Fi'],
     include_package_data=True,
-    install_requires=['appdirs==1.4.3', 'lxml==4.6.3', 'requests==2.22.0'],
+    install_requires=['appdirs==1.4.3', 'lxml==4.6.3', 'requests==2.31.0'],
     python_requires='>=3',
     classifiers=[
         'License :: OSI Approved :: MIT License',
